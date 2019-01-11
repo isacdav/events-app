@@ -200,6 +200,10 @@
     <Compile Include="Migrations\201901092325294_AddForeignKeyGigGenreProperties.Designer.cs">
       <DependentUpon>201901092325294_AddForeignKeyGigGenreProperties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901110603166_addNameAppUser.cs" />
+    <Compile Include="Migrations\201901110603166_addNameAppUser.Designer.cs">
+      <DependentUpon>201901110603166_addNameAppUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -207,6 +211,7 @@
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Gig.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="ViewModels\RegisterViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\FutureDate.cs" />
@@ -260,8 +265,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -306,6 +309,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901092325294_AddForeignKeyGigGenreProperties.resx">
       <DependentUpon>201901092325294_AddForeignKeyGigGenreProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901110603166_addNameAppUser.resx">
+      <DependentUpon>201901110603166_addNameAppUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
