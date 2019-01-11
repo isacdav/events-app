@@ -13,7 +13,7 @@ namespace EventsApp.ViewModels
         {
             DateTime dateTime;
             var isValid = DateTime.TryParseExact(Convert.ToString(value),
-                "d/MM/yyyy",
+                "dd/MM/yyyy",
                 CultureInfo.CurrentCulture,
                 DateTimeStyles.None,
                 out dateTime);
