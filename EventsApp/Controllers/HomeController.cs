@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using EventsApp.ViewModels;
 
 namespace EventsApp.Controllers
 {
@@ -24,7 +25,14 @@ namespace EventsApp.Controllers
                 .Include(g => g.Genre)
                 .Where(g => g.DateTime > DateTime.Now);
 
-            return View(upcomingGigs);
+            var viewModel = new GigsViewModel
+            {
+                UpcomingGigs = upcomingGigs,
+                ShowActions = User.Identity.IsAuthenticated,
+                Heading = "Upcoming Gigs"
+            };
+
+            return View("Gigs", viewModel);
         }
 
     }
