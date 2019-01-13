@@ -183,7 +183,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\FollowingController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="DTOs\FollowingDto.cs" />
     <Compile Include="DTOs\AttendanceDto.cs" />
     <Compile Include="Controllers\AttendancesController.cs" />
     <Compile Include="Controllers\GigsController.cs" />
@@ -224,11 +226,16 @@
     <Compile Include="Migrations\201901112119375_AttandanceFalseCascade.Designer.cs">
       <DependentUpon>201901112119375_AttandanceFalseCascade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201901130441014_addFollowings.cs" />
+    <Compile Include="Migrations\201901130441014_addFollowings.Designer.cs">
+      <DependentUpon>201901130441014_addFollowings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\Attendance.cs" />
+    <Compile Include="Models\Following.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\Gig.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -339,6 +346,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201901112119375_AttandanceFalseCascade.resx">
       <DependentUpon>201901112119375_AttandanceFalseCascade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901130441014_addFollowings.resx">
+      <DependentUpon>201901130441014_addFollowings.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
