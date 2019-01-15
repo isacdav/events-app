@@ -75,7 +75,7 @@ body, .tooltip, .popover {
 
 .form-control {
     font-size: 16px;
-    padding: 20px 15px;
+    height: 44px;
     border-radius: 9px;
 }
 
@@ -83,10 +83,6 @@ body, .tooltip, .popover {
     border-color: #20716a;
     box-shadow: none;
     -webkit-box-shadow: none;
-}
-
-select#Genre {
-    padding: 0px;
 }
 
 .btn {
@@ -140,4 +136,13 @@ select#Genre {
 
 .gigs > li .details .genre {
     font-size: 15px;
+}
+
+.gigs > li .actions {
+    font-size: 14px;
+    display: none;
+}
+
+.gigs > li:hover .actions {
+    display: block;
 }
