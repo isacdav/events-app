@@ -8,41 +8,40 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace EventsApp.Controllers
+namespace EventsApp.Controllers.API
 {
-
     [Authorize]
-    public class AttendancesController : ApiController
+    public class FollowingController : ApiController
     {
-
         private ApplicationDbContext _context;
 
-        public AttendancesController()
+        public FollowingController()
         {
             _context = new ApplicationDbContext();
         }
 
         [HttpPost]
-        public IHttpActionResult Attend(AttendanceDto dto)
+        public IHttpActionResult Follow(FollowingDto dto)
         {
             var userId = User.Identity.GetUserId();
-            var exists = _context.Attendances.Any(a => a.AttendeeId == userId && a.GigId == dto.GigId);
+            var exists = _context.Followings.Any(f => f.FollowerId == userId && f.FolloweeId == dto.FolloweeId);
 
             if (exists)
             {
-                return BadRequest("The attendance already exists");
+                return BadRequest("Following already exists");
             }
 
-            var attendance = new Attendance
+            var following = new Following
             {
-                GigId = dto.GigId,
-                AttendeeId = User.Identity.GetUserId()
+                FollowerId = userId,
+                FolloweeId = dto.FolloweeId
             };
 
-            _context.Attendances.Add(attendance);
+            _context.Followings.Add(following);
             _context.SaveChanges();
 
             return Ok();
+
         }
 
     }
