@@ -10,7 +10,7 @@ namespace EventsApp.Models
     public class Attendance
     {
         public Gig Gig { get; set; }
-        public ApplicationUser Attende { get; set; }
+        public ApplicationUser Attendee { get; set; }
 
         [Key]
         [Column(Order = 1)]

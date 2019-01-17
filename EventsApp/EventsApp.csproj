@@ -187,10 +187,14 @@
     <Compile Include="Controllers\FolloweesController.cs" />
     <Compile Include="Controllers\API\FollowingController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Migrations\201901150400539_addcanceltogig.cs" />
-    <Compile Include="Migrations\201901150400539_addcanceltogig.Designer.cs">
-      <DependentUpon>201901150400539_addcanceltogig.cs</DependentUpon>
+    <Compile Include="Migrations\201901170541143_DatabaseFinal.cs" />
+    <Compile Include="Migrations\201901170541143_DatabaseFinal.Designer.cs">
+      <DependentUpon>201901170541143_DatabaseFinal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\NotificationType.cs" />
+    <Compile Include="Models\UserNotification.cs" />
     <Compile Include="ViewModels\GigsViewModel.cs" />
     <Compile Include="DTOs\FollowingDto.cs" />
     <Compile Include="DTOs\AttendanceDto.cs" />
@@ -201,43 +205,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201901082349541_ModeloInicial.cs" />
-    <Compile Include="Migrations\201901082349541_ModeloInicial.Designer.cs">
-      <DependentUpon>201901082349541_ModeloInicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901090009239_CrearGigTabla.cs" />
-    <Compile Include="Migrations\201901090009239_CrearGigTabla.Designer.cs">
-      <DependentUpon>201901090009239_CrearGigTabla.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901090028121_OverrideConventionsGigsGenres.cs" />
-    <Compile Include="Migrations\201901090028121_OverrideConventionsGigsGenres.Designer.cs">
-      <DependentUpon>201901090028121_OverrideConventionsGigsGenres.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901090037350_PopulateGenres.cs" />
-    <Compile Include="Migrations\201901090037350_PopulateGenres.Designer.cs">
-      <DependentUpon>201901090037350_PopulateGenres.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901092325294_AddForeignKeyGigGenreProperties.cs" />
-    <Compile Include="Migrations\201901092325294_AddForeignKeyGigGenreProperties.Designer.cs">
-      <DependentUpon>201901092325294_AddForeignKeyGigGenreProperties.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901110603166_addNameAppUser.cs" />
-    <Compile Include="Migrations\201901110603166_addNameAppUser.Designer.cs">
-      <DependentUpon>201901110603166_addNameAppUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901112114130_addAttendance.cs" />
-    <Compile Include="Migrations\201901112114130_addAttendance.Designer.cs">
-      <DependentUpon>201901112114130_addAttendance.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901112119375_AttandanceFalseCascade.cs" />
-    <Compile Include="Migrations\201901112119375_AttandanceFalseCascade.Designer.cs">
-      <DependentUpon>201901112119375_AttandanceFalseCascade.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901130441014_addFollowings.cs" />
-    <Compile Include="Migrations\201901130441014_addFollowings.Designer.cs">
-      <DependentUpon>201901130441014_addFollowings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
@@ -254,9 +221,9 @@
     <Compile Include="ViewModels\ValidTime.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-EventsApp-20190108033032.mdf" />
-    <Content Include="App_Data\aspnet-EventsApp-20190108033032_log.ldf">
-      <DependentUpon>aspnet-EventsApp-20190108033032.mdf</DependentUpon>
+    <Content Include="App_Data\EventsAppDb.mdf" />
+    <Content Include="App_Data\EventsAppDb_log.ldf">
+      <DependentUpon>EventsAppDb.mdf</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -335,35 +302,8 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901082349541_ModeloInicial.resx">
-      <DependentUpon>201901082349541_ModeloInicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901090009239_CrearGigTabla.resx">
-      <DependentUpon>201901090009239_CrearGigTabla.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901090028121_OverrideConventionsGigsGenres.resx">
-      <DependentUpon>201901090028121_OverrideConventionsGigsGenres.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901090037350_PopulateGenres.resx">
-      <DependentUpon>201901090037350_PopulateGenres.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901092325294_AddForeignKeyGigGenreProperties.resx">
-      <DependentUpon>201901092325294_AddForeignKeyGigGenreProperties.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901110603166_addNameAppUser.resx">
-      <DependentUpon>201901110603166_addNameAppUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901112114130_addAttendance.resx">
-      <DependentUpon>201901112114130_addAttendance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901112119375_AttandanceFalseCascade.resx">
-      <DependentUpon>201901112119375_AttandanceFalseCascade.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901130441014_addFollowings.resx">
-      <DependentUpon>201901130441014_addFollowings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901150400539_addcanceltogig.resx">
-      <DependentUpon>201901150400539_addcanceltogig.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201901170541143_DatabaseFinal.resx">
+      <DependentUpon>201901170541143_DatabaseFinal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

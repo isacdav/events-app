@@ -7,13 +7,13 @@ namespace EventsApp.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class AttandanceFalseCascade : IMigrationMetadata
+    public sealed partial class DatabaseFinal : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AttandanceFalseCascade));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(DatabaseFinal));
         
         string IMigrationMetadata.Id
         {
-            get { return "201901112119375_AttandanceFalseCascade"; }
+            get { return "201901170541143_DatabaseFinal"; }
         }
         
         string IMigrationMetadata.Source
