@@ -20,7 +20,7 @@ namespace EventsApp.Models
         //Para que no se pueda cambiar se pone en private
         public ApplicationUser User { get; private set; }
         public Notification Notification { get; private set; }
-        public bool IsRead { get; set; }
+        public bool IsRead { get; private set; }
 
         //Para que no se llame desde codigo, osea solo EF lo usa
         protected UserNotification() { }
@@ -31,5 +31,9 @@ namespace EventsApp.Models
             Notification = notification ?? throw new ArgumentNullException("notification");
         }
 
+        public void Read()
+        {
+            IsRead = true;
+        }
     }
 }

@@ -37,7 +37,7 @@ namespace EventsApp.Models
 
         public void Modify(DateTime dateTime, string venue, byte genre)
         {
-            var notification = Notification.GigUpdated(this, dateTime, venue);
+            var notification = Notification.GigUpdated(this, DateTime, Venue);
 
             Venue = venue;
             DateTime = dateTime;
