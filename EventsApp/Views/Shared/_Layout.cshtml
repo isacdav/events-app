@@ -36,6 +36,7 @@
     </div>
 
     @Scripts.Render("~/bundles/lib")
+    @Scripts.Render("~/bundles/app")
     @RenderSection("scripts", required: false)
     <script type="text/x-template" id="notifications-template">
         <ul class="notifications">
@@ -72,7 +73,7 @@
     </script>
     <script>
         $(document).ready(function () {
-            $.getJSON("api/notifications", function (notifications) {
+            $.getJSON("/api/notifications", function (notifications) {
                 if (notifications.length == 0) {
                     return;
                 }
