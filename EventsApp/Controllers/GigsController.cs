@@ -1,11 +1,7 @@
-﻿using EventsApp.Models;
-using EventsApp.Persistence;
-using EventsApp.Repositories;
-using EventsApp.ViewModels;
+﻿using EventsApp.Core;
+using EventsApp.Core.Models;
+using EventsApp.Core.ViewModels;
 using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 
@@ -13,13 +9,11 @@ namespace EventsApp.Controllers
 {
     public class GigsController : Controller
     {
-        private readonly ApplicationDbContext _context;
-        private readonly UnitOfWork _unitOfWork;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public GigsController()
+        public GigsController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
-            _unitOfWork = new UnitOfWork(_context);
+            _unitOfWork = unitOfWork;
         }
 
         [Authorize]
@@ -71,7 +65,7 @@ namespace EventsApp.Controllers
             var viewModel = new GigFormViewModel
             {
                 Id = gig.Id,
-                Genres = _context.Genres.ToList(),
+                Genres = _unitOfWork.Genres.GetGenres(),
                 Date = gig.DateTime.ToString("dd/MM/yyyy"),
                 Time = gig.DateTime.ToString("HH:mm"),
                 Genre = gig.GenreId,

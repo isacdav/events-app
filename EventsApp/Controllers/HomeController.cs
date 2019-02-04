@@ -1,44 +1,30 @@
-﻿using EventsApp.Models;
-using System.Data.Entity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using EventsApp.ViewModels;
+﻿using EventsApp.Core;
+using EventsApp.Core.ViewModels;
+using EventsApp.Persistence;
+using EventsApp.Persistence.Repositories;
 using Microsoft.AspNet.Identity;
-using EventsApp.Repositories;
+using System;
+using System.Data.Entity;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace EventsApp.Controllers
 {
     public class HomeController : Controller
     {
-        private ApplicationDbContext _context;
-        private readonly AttendanceRepository _attendanceRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public HomeController()
+        public HomeController(IUnitOfWork unitOfWork)
         {
-            _context = new ApplicationDbContext();
-            _attendanceRepository = new AttendanceRepository(_context);
+            _unitOfWork = unitOfWork;
         }
 
         public ActionResult Index(string search = null)
         {
-            var upcomingGigs = _context.Gigs
-                .Include(g => g.Artist)
-                .Include(g => g.Genre)
-                .Where(g => g.DateTime > DateTime.Now && !g.IsCanceled);
-
-            if (!string.IsNullOrWhiteSpace(search))
-            {
-                upcomingGigs = upcomingGigs
-                    .Where(g => g.Artist.Name.Contains(search) ||
-                                g.Genre.Name.Contains(search) ||
-                                g.Venue.Contains(search));
-            }
+            var upcomingGigs = _unitOfWork.Gigs.GetUpcomingGigs(search);
 
             var userId = User.Identity.GetUserId();
-            var attendances = _attendanceRepository.GetFutureAttendances(userId)
+            var attendances = _unitOfWork.Attendances.GetFutureAttendances(userId)
                 .ToLookup(a => a.GigId);
 
             var viewModel = new GigsViewModel

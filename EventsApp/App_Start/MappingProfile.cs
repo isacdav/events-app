@@ -1,10 +1,6 @@
 ﻿using AutoMapper;
-using EventsApp.DTOs;
-using EventsApp.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using EventsApp.Core.DTOs;
+using EventsApp.Core.Models;
 
 namespace EventsApp.App_Start
 {
